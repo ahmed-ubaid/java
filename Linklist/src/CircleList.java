@@ -87,8 +87,30 @@ public class CircleList extends Linklist{
     public void removeAt(int pos){
         if(checkEmpty()){
             System.out.println("Empty list");
+        }else if(pos==0){
+            this.head=null;
+            this.tail=null;
+            this.size-=1;
         }else{
             node current=this.head;
+           for(int i=1;i<pos-1;i++){
+               current=current.next;
+           }
+            System.out.println(current.value);
+
+           if(current==null){
+               System.out.println("invalid");
+           }
+           else if(current.next==null){
+               System.out.println("invalid");
+           }
+           else if(current.next.next==this.head){
+               current.next=this.head;
+               this.tail=current;
+           }else{
+               current.next=current.next.next;
+           }
+            this.size-=1;
         }
     }
 }
