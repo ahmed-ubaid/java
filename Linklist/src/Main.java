@@ -4,11 +4,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CircleList m=new CircleList(5);
-        m.removeAt(5);
-        m.printlist();
-        m.removeAt(3);
-        m.printlist();
+        DoublyList m=new DoublyList(5);
+        m.printList();
+
+        System.out.println("\n");
+        m.addAt(2,9);
+        m.printList();
+
+        m.remove(2);
+        m.printList();
+
     }
 
 }
