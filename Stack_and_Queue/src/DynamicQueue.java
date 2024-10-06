@@ -11,6 +11,7 @@ public class DynamicQueue {
         for(int i=0;i<this.size;i++){
             System.out.print("element["+i+"]:");
             int num=scanner.nextInt();
+
             node newnode=new node(num);
             if(this.front==null){
                 this.front=newnode;

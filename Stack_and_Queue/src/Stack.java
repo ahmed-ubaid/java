@@ -1,6 +1,6 @@
 public class Stack {
     static final int max_size=100;
-    int[] stack=new int[Stack.max_size];
+    char[] stack=new char[Stack.max_size];
     int top=-1;
     int size=0;
 
@@ -11,7 +11,7 @@ public class Stack {
     public boolean ifFull(){
         return this.top==Stack.max_size;
     }
-    public void push(int val){
+    public void push(char val){
         if(ifFull()){
             System.out.println("STACK OVERFLOW");
             return;
@@ -21,7 +21,7 @@ public class Stack {
             this.size++;
         }
     }
-    public int pop(int val){
+    public int pop(){
         if(this.isEmpty()){
             System.out.println("STACK OVERFLOW");
             return -1;
