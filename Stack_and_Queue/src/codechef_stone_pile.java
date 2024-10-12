@@ -102,7 +102,7 @@ public class codechef_stone_pile {
                 }
             }
 
-            System.out.println("last:"+k.queue[k.tail]+" person:"+ (turn==0?"aman":"akshat"));
+            System.out.println("last:"+k.queue[k.tail]+" person:"+ turn);
         }
 
     }
