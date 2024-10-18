@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         Random random=new Random();
-        String[] dict={"animal","plant","planet","laptop"};
+        String[] dict={"animal","plant","oceen","planet","laptop"};
 
         boolean playing=true;
 
@@ -40,13 +40,25 @@ public class Main {
                 System.out.println("Enter your guess: ");
                 String guess=sc.next();
                 char guesChar=guess.charAt(0);
-                char[] guessArr=new char[5];
+                boolean already=false;
+
+                for(int i=0;i< word.length;i++){
+                    if(word[i]==guesChar){
+                        already=true;
+                        break;
+                    }
+                }
 
                 if(selected.indexOf(guesChar)==-1){
                     System.out.println("Wrong guess");
                     life--;
-                }else{
-                    
+                }
+                else if(already){
+                    System.out.println("Already entered this guess");
+                    life--;
+                }
+                else{
+
                     for(int i=0;i<selected.length();i++){
                         if(selected.charAt(i)==guesChar)
                             word[i]=guesChar;
@@ -56,6 +68,7 @@ public class Main {
                     for (char c : word) {
                         if (c == '_') {
                             isfull = false;
+                            break;
                         }
                     }
 
@@ -65,6 +78,13 @@ public class Main {
                         break;
                     }
                 }
+            }
+
+            if(life==0){
+                System.out.println("You lost!! number of lives "+life);
+            }
+            else{
+                System.out.println("You won this round");
             }
 
         }
