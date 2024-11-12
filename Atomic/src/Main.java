@@ -2,7 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Atom hy=new Atom();
+        Atom hy=new Atom("Hellium",2,2,2);
         hy.printDetails();
     }
 }

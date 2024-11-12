@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Atom {
@@ -7,19 +8,29 @@ public class Atom {
     private int neutron;
     private String name;
 
-    public Atom(int e,int p,int n,String na){
+    public Atom(String na,int e,int p,int n){
         this.setProton(p);
         this.setElectron(e);
-        this.setNeutron(n);
+        if(na.toLowerCase().equals("hydrogen")){
+            System.out.println("Usually Hydrogen does not contain any neutron, " +
+                    "unless it is an isotope which are not yet supported thus neutron count will be set to zero ");
+            this.setNeutron(0);
+        }else{
+            this.setNeutron(n);
+        }
         this.setName(na);
     }
     public Atom(){
         System.out.println("Enter the Name of the element: ");
-        this.setName(sc.next());
+        this.setName(sc.next().toLowerCase());
         System.out.println("Enter the number of Protons: ");
         this.setProton(sc.nextInt());
-        System.out.println("Enter the number of Neutrons: ");
-        this.setNeutron(sc.nextInt());
+        if(Objects.equals(name, "hydrogen")){
+            this.setNeutron(0);
+        }else{
+            System.out.println("Enter the number of Neutrons: ");
+            this.setNeutron(sc.nextInt());
+        }
         System.out.println("Enter the number of Electron: ");
         this.setElectron(sc.nextInt());
     }
